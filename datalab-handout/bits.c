@@ -295,7 +295,8 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  int mask = ~(~!x+1);
+  return (y & mask) | (z & ~mask);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -305,12 +306,29 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  // x <= y   ->  x + (-y) <= 0
+  // 1. x-1 y+0
+  // 2. x+0 y-1
+  // 3. x-1 y-1
+  // 4. x+0 y+0
+  int xh = !!(x >> 31);
+  int yh = !!(y >> 31);
+  // 相等的情况
+  int equal = !(x^y);
+  // 不等1：头 等 x + (-y) < 0
+  int head = (x + (~y + 1)) >> 31;
+  int less1 = !(xh^yh) & !!head;
+  // 不等2：头 不等 x-1 y+0
+  int less2 = xh & !yh;
+
+  return equal | less1 | less2;
+
 }
 //4
 /* 
  * logicalNeg - implement the ! operator, using all of 
  *              the legal operators except !
+ *    实现！运算符，使用除!以外的所有合法运算符
  *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
  *   Legal ops: ~ & ^ | + << >>
  *   Max ops: 12

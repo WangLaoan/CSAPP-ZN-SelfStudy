@@ -1,0 +1,37 @@
+#####################################################################
+# CS:APP Architecture Lab
+# Handout files for students
+#
+# Copyright (c) 2002, 2010, 2015, R. Bryant and D. O'Hallaron,
+# All rights reserved. May not be used, modified, or copied
+# without permission.
+#
+######################################################################
+
+This directory contains the files that you need for the CS:APP
+architecture lab.
+
+******
+Files:
+******
+
+Makefile		Use this to handin your solutions
+README			This file
+archlab.{ps,pdf}	Lab writeup
+sim.tar			Archive of the Y86-64 tools in tar format
+simguide.{ps,pdf}	CS:APP Guide to Simulators document	
+
+############################################### #################### 
+CS：APP Architecture Lab＃学生讲义文件##版权所有（c）2002、2010、2015，R.Bryant和D.O' Hallaron，
+＃保留所有权利。 未经许可，不得使用，修改或复制＃。
+
+############################################### #####################
+此目录包含CS：APP体系结构实验室所需的文件。
+
+******文件：
+
+****** 
+Makefile使用此文件提交解决方案
+archlab.{ps,pdf}实验室写作
+sim.tar tar格式的Y86-64工具存档
+simguide.{ps,pdf} CS：APP指南 模拟器文件
